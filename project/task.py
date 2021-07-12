@@ -6,11 +6,10 @@ class Task:
         self.completed = False
 
     def change_name(self, new_name:str):
-        if not self.name == new_name:
+        if self.name != new_name:
             self.name = new_name
             return self.name
-        else:
-            return "Name cannot be the same"
+        return "Name cannot be the same."
 
     def change_due_date(self, new_date: str):
         if not self.due_date == new_date:
@@ -21,9 +20,10 @@ class Task:
 
     def add_comment(self, comment: str):
         self.comments.append(comment)
+        return print(self.comments)
 
     def edit_comment(self, comment_number: int, new_comment: str):
-        if comment_number < len(self.comments):
+        if 0 <= comment_number < len(self.comments):
             self.comments[comment_number] = new_comment
             return ", ".join(self.comments)
         else:
